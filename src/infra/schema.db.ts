@@ -11,4 +11,13 @@ const scans = sqliteTable("scans", {
     suggestion: text("suggestion"),
 });
 
-export { scans };
+const users = sqliteTable("users", {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    name: text("name").notNull(),
+    email: text("email").notNull(),
+    password: text("password").notNull(),
+    createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+    updatedAt: text("updated_at").default("CURRENT_TIMESTAMP"),
+})
+
+export { scans, users };
